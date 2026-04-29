@@ -44,22 +44,22 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-ink flex flex-col items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-cream flex flex-col items-center justify-center p-4 relative overflow-hidden font-sans">
       {/* Background Orbs */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand/20 rounded-full blur-[120px]" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-teal/20 rounded-full blur-[120px]" />
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand/10 rounded-full blur-[120px]" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-teal/10 rounded-full blur-[120px]" />
 
       <div className="w-full max-w-md z-10">
         <div className="text-center mb-10 animate-fade-in">
-          <img src="/logo.svg" alt="Powerinova" className="h-12 mx-auto mb-6 brightness-0 invert" />
-          <h1 className="text-3xl font-bold text-white tracking-tight">Access Control</h1>
+          <img src="/logo.svg" alt="Powerinova" className="h-12 mx-auto mb-6" />
+          <h1 className="text-3xl font-bold text-teal tracking-tight">Access Control</h1>
           <p className="text-muted-sage mt-2">Enter your credentials to manage the grid.</p>
         </div>
 
-        <div className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-2xl shadow-black/50">
+        <div className="bg-white border border-pi-border rounded-3xl p-8 shadow-2xl shadow-teal/5 relative">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-2">
-              <label className="text-sm font-medium text-muted-sage ml-1">Email Terminal</label>
+              <label className="text-sm font-semibold text-teal ml-1">Email Terminal</label>
               <div className="relative group">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-sage group-focus-within:text-brand transition-colors" />
                 <input
@@ -68,13 +68,13 @@ function Login() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="admin@powerinova.com"
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all placeholder:text-muted-sage/30"
+                  className="w-full bg-cream/50 border border-pi-border rounded-2xl py-4 pl-12 pr-4 text-ink focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all placeholder:text-muted-sage/50"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-medium text-muted-sage ml-1">Secure Key</label>
+              <label className="text-sm font-semibold text-teal ml-1">Secure Key</label>
               <div className="relative group">
                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-sage group-focus-within:text-brand transition-colors" />
                 <input
@@ -83,7 +83,7 @@ function Login() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all placeholder:text-muted-sage/30"
+                  className="w-full bg-cream/50 border border-pi-border rounded-2xl py-4 pl-12 pr-4 text-ink focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all placeholder:text-muted-sage/50"
                 />
               </div>
             </div>
@@ -106,17 +106,17 @@ function Login() {
 
           <div className="relative my-8">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-white/10"></div>
+              <div className="w-full border-t border-pi-border"></div>
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-[#0a0a0a] px-4 text-muted-sage tracking-widest font-bold">Or authorize with</span>
+              <span className="bg-white px-4 text-muted-sage tracking-widest font-bold">Or authorize with</span>
             </div>
           </div>
 
           <button
             onClick={handleGoogleLogin}
             disabled={googleLoading}
-            className="w-full bg-white text-ink font-bold py-4 rounded-2xl hover:bg-white/90 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
+            className="w-full bg-cream hover:bg-cream/80 border border-pi-border text-teal font-bold py-4 rounded-2xl transition-all flex items-center justify-center gap-3 disabled:opacity-50"
           >
             {googleLoading ? (
               <Loader2 className="w-5 h-5 animate-spin" />
