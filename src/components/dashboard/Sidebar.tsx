@@ -10,6 +10,7 @@ import {
   FileText,
   Settings as SettingsIcon,
   LogOut,
+  X,
 } from "lucide-react";
 import { userProfile } from "../../data/mockData";
 import { useAlerts } from "@/context/AlertsContext";
@@ -17,7 +18,12 @@ import { useAuth } from "@/context/AuthContext";
 import { useProfile } from "@/context/ProfileContext";
 import { toast } from "sonner";
 
-export default function Sidebar() {
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const { pathname } = useLocation();
   const { unreadCount } = useAlerts();
   const { logout } = useAuth();
@@ -47,10 +53,19 @@ export default function Sidebar() {
   ] as const;
 
   return (
-    <aside className="w-60 shrink-0 bg-white border-r border-pi-border text-ink flex flex-col h-screen sticky top-0 overflow-y-auto">
-      <div className="px-5  flex items-center gap-2">
+    <aside className={[
+      "fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-pi-border text-ink flex flex-col h-screen transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:sticky lg:top-0 lg:w-60 lg:shrink-0 overflow-y-auto",
+      isOpen ? "translate-x-0" : "-translate-x-full"
+    ].join(" ")}>
+      <div className="px-5 flex items-center justify-between gap-2">
         <img src="/logo.svg" alt="Powerinova Logo" className="w-40 h-auto object-contain" />
-        
+        <button 
+          onClick={onClose}
+          className="lg:hidden p-2 -mr-2 rounded-lg hover:bg-pi-border/20 text-teal transition-colors"
+          aria-label="Close menu"
+        >
+          <X className="w-5 h-5" />
+        </button>
       </div>
 
       <nav className="flex-1 px-3 py-2 space-y-0.5">
@@ -82,14 +97,8 @@ export default function Sidebar() {
 
       <div className="p-4 border-t border-pi-border">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center shrink-0">
-            {profile.avatarUrl ? (
-              <img src={profile.avatarUrl} alt={profile.name} className="w-full h-full rounded-full object-cover" />
-            ) : (
-              <span className="font-medium text-sm">
-                {profile.name.charAt(0)}
-              </span>
-            )}
+          <div className="w-10 h-10 rounded-full bg-cream border border-pi-border flex items-center justify-center shrink-0 overflow-hidden">
+            <img src={profile.avatarUrl} alt={profile.name} className="w-full h-full object-cover" />
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-sm font-medium text-ink truncate">{profile.name}</p>

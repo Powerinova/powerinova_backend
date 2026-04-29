@@ -7,9 +7,11 @@ export type UserProfile = {
   email: string;
   plan: string;
   joinedDate: string;
-  avatarUrl?: string;
+  avatarUrl: string;
   password?: string;
 };
+
+const DEFAULT_AVATAR = "/default-avatar.png";
 
 interface ProfileContextType {
   profile: UserProfile;
@@ -21,7 +23,11 @@ const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
 export function ProfileProvider({ children }: { children: ReactNode }) {
   const { user } = useAuth();
   const [profile, setProfile] = useState<UserProfile>({
-    ...initialProfile,
+    name: initialProfile.name,
+    email: initialProfile.email,
+    plan: initialProfile.plan,
+    joinedDate: initialProfile.joinedDate,
+    avatarUrl: initialProfile.avatar || DEFAULT_AVATAR,
     password: "password123", // mock initial password
   });
 
@@ -31,7 +37,7 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
         ...prev,
         name: user.displayName || prev.name,
         email: user.email || prev.email,
-        avatarUrl: user.photoURL || prev.avatarUrl,
+        avatarUrl: user.photoURL || prev.avatarUrl || DEFAULT_AVATAR,
       }));
     }
   }, [user]);

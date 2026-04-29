@@ -34,7 +34,10 @@ export default function UsageByCategory() {
               tickFormatter={(v) => `${v} Units`}
             />
             <Tooltip
-              contentStyle={{ background: "#144444", border: "none", borderRadius: 8, color: "white", fontSize: 12 }}
+              cursor={false}
+              contentStyle={{ background: "#ffffff", border: "1px solid #144444", borderRadius: 8, fontSize: 12 }}
+              itemStyle={{ color: "#144444", fontWeight: 600 }}
+              labelStyle={{ color: "#6b7a6b", marginBottom: 4, fontWeight: 700 }}
               formatter={(v, n) => [`${v}%`, n === "used" ? "Allocated" : "Available"]}
             />
             <Bar dataKey="remaining" stackId="a" radius={[0, 0, 0, 0]}>

@@ -155,4 +155,12 @@
     overscroll-behavior: none;
     touch-action: pan-y;
   }
+
+  /* Remove Recharts focus outline */
+  .recharts-wrapper,
+  .recharts-surface,
+  .recharts-wrapper:focus,
+  .recharts-surface:focus {
+    outline: none !important;
+  }
 }

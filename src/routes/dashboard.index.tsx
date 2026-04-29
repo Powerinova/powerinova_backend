@@ -11,6 +11,7 @@ import ActivityFeed from "@/components/dashboard/ActivityFeed";
 import KPIStrip from "@/components/dashboard/KPIStrip";
 import CategoryBreakdown from "@/components/dashboard/CategoryBreakdown";
 import RemindersPanel from "@/components/dashboard/RemindersPanel";
+import GridSimulator from "@/components/dashboard/GridSimulator";
 
 export const Route = createFileRoute("/dashboard/")({
   component: Overview,
@@ -74,7 +75,7 @@ function Overview() {
           <button
             onClick={handleRefresh}
             disabled={isRefreshing}
-            className="flex items-center gap-2 px-4 py-2 bg-cream hover:bg-pi-border/20 text-teal text-sm font-semibold rounded-xl border border-pi-border transition-all disabled:opacity-50"
+            className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-cream hover:bg-pi-border/20 text-teal text-sm font-semibold rounded-xl border border-pi-border transition-all disabled:opacity-50 flex-1 sm:flex-none justify-center"
           >
             <RefreshCcw className={`w-4 h-4 ${isRefreshing ? "animate-spin" : ""}`} />
             <span>{isRefreshing ? "Synchronizing..." : "Sync Grid"}</span>
@@ -82,7 +83,7 @@ function Overview() {
           <button 
             onClick={handleGenerateAudit}
             disabled={isGenerating}
-            className="flex items-center gap-2 px-4 py-2 bg-brand text-white text-sm font-semibold rounded-xl hover:bg-brand/90 shadow-lg shadow-brand/20 transition-all disabled:opacity-50"
+            className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-brand text-white text-sm font-semibold rounded-xl hover:bg-brand/90 shadow-lg shadow-brand/20 transition-all disabled:opacity-50 flex-1 sm:flex-none justify-center"
           >
             {isGenerating ? (
               <Loader2 className="w-4 h-4 animate-spin" />
@@ -96,7 +97,9 @@ function Overview() {
 
       <KPIStrip isRefreshing={isRefreshing} />
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <GridSimulator />
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <EfficiencyGauge />
         <UsageTrends />
         <UsageByCategory />

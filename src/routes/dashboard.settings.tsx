@@ -117,8 +117,8 @@ function Settings() {
             <input 
               type="email" 
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 bg-cream/50 border border-pi-border rounded-lg text-sm text-ink focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+              readOnly
+              className="w-full px-3 py-2 bg-pi-border/30 border border-pi-border rounded-lg text-sm text-muted-sage cursor-not-allowed outline-none"
             />
           </div>
 

@@ -28,7 +28,7 @@ export default function PeakUsageChart() {
             <XAxis dataKey="time" tick={{ fill: "#6b7a6b", fontSize: 11 }} axisLine={false} tickLine={false} />
             <YAxis tick={{ fill: "#6b7a6b", fontSize: 11 }} axisLine={false} tickLine={false} />
             <Tooltip 
-              cursor={{ fill: '#f4f3f0' }}
+              cursor={false}
               contentStyle={{ borderRadius: '8px', border: '1px solid #e8e4dc', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
             />
             <Bar dataKey="usage" fill="#75b239" radius={[4, 4, 0, 0]} barSize={32} />

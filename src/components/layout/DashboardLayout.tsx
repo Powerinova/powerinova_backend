@@ -1,5 +1,6 @@
 import { Outlet, useLocation, Link, useNavigate } from "@tanstack/react-router";
-import { Bell, ChevronDown, LogOut, Settings, Activity, Cpu } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Bell, ChevronDown, LogOut, Settings, Activity, Cpu, Menu, X } from "lucide-react";
 import Sidebar from "@/components/dashboard/Sidebar";
 import { useAlerts } from "@/context/AlertsContext";
 import { useProfile } from "@/context/ProfileContext";
@@ -13,7 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const titleMap: Record<string, string> = {
-  "/dashboard": "Welcome, Daniel Carter",
+  "/dashboard": "Welcome",
   "/dashboard/analytics": "Usage Trends",
   "/dashboard/optimization": "Efficiency Hub",
   "/dashboard/devices": "Devices",
@@ -27,10 +28,17 @@ const titleMap: Record<string, string> = {
 export default function DashboardLayout() {
   const { pathname } = useLocation();
   const { profile } = useProfile();
-  const title = titleMap[pathname] ?? "Dashboard";
+  const baseTitle = titleMap[pathname] ?? "Dashboard";
+  const title = pathname === "/dashboard" ? `${baseTitle}, ${profile.name}` : baseTitle;
   const { unreadCount } = useAlerts();
   const { logout } = useAuth();
   const navigate = useNavigate();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // Close sidebar on route change
+  useEffect(() => {
+    setIsSidebarOpen(false);
+  }, [pathname]);
 
   const handleLogout = async () => {
     try {
@@ -43,13 +51,29 @@ export default function DashboardLayout() {
   };
 
   return (
-    <div className="flex min-h-screen bg-cream font-sans text-ink">
-      <Sidebar />
+    <div className="flex min-h-screen bg-cream font-sans text-ink relative">
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+      
+      {/* Mobile Overlay */}
+      {isSidebarOpen && (
+        <div 
+          className="fixed inset-0 z-40 bg-ink/40 backdrop-blur-sm lg:hidden transition-opacity duration-300"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
       <div className="flex-1 flex flex-col min-w-0">
         <div className="sticky top-0 z-40 bg-cream border-b border-pi-border mb-6">
-          <header className="px-6 pt-5 pb-3 flex items-center justify-between gap-4">
-            <div className="flex-1 min-w-0">
-              <h1 className="text-teal font-bold text-xl tracking-tight truncate">{title}</h1>
+          <header className="px-4 sm:px-6 pt-5 pb-3 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3 flex-1 min-w-0">
+              <button 
+                onClick={() => setIsSidebarOpen(true)}
+                className="lg:hidden p-2 -ml-2 rounded-lg hover:bg-pi-border/20 text-teal transition-colors"
+                aria-label="Open menu"
+              >
+                <Menu className="w-5 h-5" />
+              </button>
+              <h1 className="text-teal font-bold text-lg sm:text-xl tracking-tight truncate">{title}</h1>
             </div>
 
 
@@ -64,17 +88,11 @@ export default function DashboardLayout() {
               </Link>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button className="flex items-center gap-3 pl-1.5 pr-3 py-1.5 rounded-full bg-white border border-pi-border focus:outline-none focus:border-brand text-left">
-                    {profile.avatarUrl ? (
-                      <img src={profile.avatarUrl} alt="Avatar" className="w-8 h-8 rounded-full object-cover shrink-0" />
-                    ) : (
-                      <span className="w-8 h-8 rounded-full bg-brand text-white text-sm font-bold flex items-center justify-center shrink-0">
-                        {profile.name.charAt(0)}
-                      </span>
-                    )}
+                  <button className="flex items-center gap-3 pl-1.5 pr-3 py-1.5 rounded-full bg-white border border-pi-border focus:outline-none focus:border-brand text-left shrink-0">
+                    <img src={profile.avatarUrl} alt="Avatar" className="w-8 h-8 rounded-full object-cover shrink-0" />
                     <div className="flex flex-col hidden sm:flex">
-                      <span className="text-sm font-semibold text-teal leading-tight">{profile.name}</span>
-                      <span className="text-xs text-muted-sage leading-tight">{profile.email}</span>
+                      <span className="text-sm font-semibold text-teal leading-tight truncate max-w-[120px]">{profile.name}</span>
+                      <span className="text-xs text-muted-sage leading-tight truncate max-w-[120px]">{profile.email}</span>
                     </div>
                     <ChevronDown className="w-4 h-4 text-muted-sage ml-1" />
                   </button>

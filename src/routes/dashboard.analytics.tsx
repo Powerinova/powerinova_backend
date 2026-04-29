@@ -40,13 +40,17 @@ function Analytics() {
               <CartesianGrid strokeDasharray="3 3" stroke="#e8e4dc" />
               <XAxis dataKey="day" tick={{ fill: "#6b7a6b", fontSize: 12 }} axisLine={false} tickLine={false} />
               <YAxis tick={{ fill: "#6b7a6b", fontSize: 12 }} axisLine={false} tickLine={false} />
-              <Tooltip />
+              <Tooltip 
+                contentStyle={{ background: "#ffffff", border: "1px solid #75b239", borderRadius: 8, fontSize: 12 }}
+                itemStyle={{ color: "#75b239", fontWeight: 600 }}
+                labelStyle={{ color: "#6b7a6b", marginBottom: 4, fontWeight: 700 }}
+              />
               <Area type="monotone" dataKey="score" stroke="#75b239" strokeWidth={2.5} fill="url(#g1)" />
             </AreaChart>
           </ResponsiveContainer>
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <PeakUsageChart />
         <EfficiencyForecast />
         <div className="bg-white border border-pi-border rounded-xl p-5">
@@ -60,7 +64,12 @@ function Analytics() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#e8e4dc" />
                 <XAxis dataKey="day" tick={{ fill: "#6b7a6b", fontSize: 12 }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fill: "#6b7a6b", fontSize: 12 }} axisLine={false} tickLine={false} />
-                <Tooltip />
+                <Tooltip 
+                  cursor={false}
+                  contentStyle={{ background: "#ffffff", border: "1px solid #144444", borderRadius: 8, fontSize: 12 }}
+                  itemStyle={{ color: "#144444", fontWeight: 600 }}
+                  labelStyle={{ color: "#6b7a6b", marginBottom: 4, fontWeight: 700 }}
+                />
                 <Bar dataKey="usage" fill="#144444" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>

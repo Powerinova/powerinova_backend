@@ -52,7 +52,12 @@ function Utilities() {
               <CartesianGrid strokeDasharray="3 3" stroke="#eef0ea" vertical={false} />
               <XAxis dataKey="month" tick={{ fill: "#6b7a6b", fontSize: 12 }} axisLine={false} tickLine={false} />
               <YAxis tick={{ fill: "#6b7a6b", fontSize: 12 }} axisLine={false} tickLine={false} />
-              <Tooltip contentStyle={{ background: "#144444", border: "none", borderRadius: 8, color: "white", fontSize: 12 }} />
+              <Tooltip 
+                cursor={false}
+                contentStyle={{ background: "#ffffff", border: "1px solid #144444", borderRadius: 8, fontSize: 12 }}
+                itemStyle={{ color: "#144444", fontWeight: 600 }}
+                labelStyle={{ color: "#6b7a6b", marginBottom: 4, fontWeight: 700 }}
+              />
               <Bar dataKey="electricity" fill="#e3940b" radius={[6, 6, 0, 0]} />
               <Bar dataKey="water" fill="#484c7f" radius={[6, 6, 0, 0]} />
               <Bar dataKey="gas" fill="#75b239" radius={[6, 6, 0, 0]} />
