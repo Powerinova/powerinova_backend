@@ -83,7 +83,7 @@ function Overview() {
           <button 
             onClick={handleGenerateAudit}
             disabled={isGenerating}
-            className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-brand text-white text-sm font-semibold rounded-xl hover:bg-brand/90 shadow-lg shadow-brand/20 transition-all disabled:opacity-50 flex-1 sm:flex-none justify-center"
+            className="flex whitespace-nowrap items-center gap-2 px-3 sm:px-4 py-2 bg-brand text-white text-sm font-semibold rounded-xl hover:bg-brand/90 shadow-lg shadow-brand/20 transition-all disabled:opacity-50 flex-1 sm:flex-none justify-center"
           >
             {isGenerating ? (
               <Loader2 className="w-4 h-4 animate-spin" />

@@ -117,7 +117,7 @@ export default function DashboardLayout() {
           <Outlet />
         </main>
         <footer className="text-center text-xs text-muted-sage py-4">
-          Powerinova Systems Inc. | © 2024 | Powered by NVIDIA SDK | <a className="text-brand hover:underline" href="#">Support</a>
+          Powerinova Systems Inc. | © {new Date().getFullYear()}
         </footer>
       </div>
     </div>

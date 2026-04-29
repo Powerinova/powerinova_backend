@@ -59,7 +59,7 @@ export default function AITipsPanel({ limit }: { limit?: number }) {
           </div>
           <h3 className="text-teal font-semibold">Heuristic Recommendations</h3>
         </div>
-        <span className="text-xs text-muted-sage">{tips.length} Proposals</span>
+        <span className="text-xs text-muted-sage whitespace-nowrap">{tips.length} Proposals</span>
       </div>
       <div className="space-y-3">
         {tips.map((t) => {
@@ -105,4 +105,4 @@ export default function AITipsPanel({ limit }: { limit?: number }) {
       </div>
     </div>
   );
-}
+}

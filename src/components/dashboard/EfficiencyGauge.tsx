@@ -34,7 +34,7 @@ export default function EfficiencyGauge() {
     <div className="bg-white border border-pi-border rounded-2xl p-5 flex flex-col h-full">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-teal font-bold text-base">Net Efficiency Analysis</h3>
-        <span className="inline-flex items-center gap-1.5 bg-brand/10 text-brand text-xs font-semibold px-2.5 py-1 rounded-full">
+        <span className="inline-flex items-center gap-1.5 bg-brand/10 text-brand text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
           <span className="w-1.5 h-1.5 rounded-full bg-brand" /> Optimized State
         </span>
       </div>
@@ -96,7 +96,7 @@ export default function EfficiencyGauge() {
         </button>
         <button 
           onClick={handleMetricsExplorer}
-          className="flex items-center justify-center gap-2 px-3 py-2.5 bg-white border border-pi-border text-teal text-xs font-bold rounded-xl hover:bg-cream transition-all group"
+          className="flex items-center justify-center gap-2 px-3 py-2.5 bg-white border border-pi-border text-teal text-xs font-bold rounded-xl hover:bg-cream transition-all group whitespace-nowrap"
         >
           <span>Metrics Explorer</span>
           <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
