@@ -11,7 +11,6 @@ import ActivityFeed from "@/components/dashboard/ActivityFeed";
 import KPIStrip from "@/components/dashboard/KPIStrip";
 import CategoryBreakdown from "@/components/dashboard/CategoryBreakdown";
 import RemindersPanel from "@/components/dashboard/RemindersPanel";
-import GridSimulator from "@/components/dashboard/GridSimulator";
 
 export const Route = createFileRoute("/dashboard/")({
   component: Overview,
@@ -96,8 +95,6 @@ function Overview() {
       </div>
 
       <KPIStrip isRefreshing={isRefreshing} />
-      
-      <GridSimulator />
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <EfficiencyGauge />

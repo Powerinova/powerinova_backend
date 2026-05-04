@@ -8,178 +8,178 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as SignupRouteImport } from './routes/signup'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as DashboardRouteImport } from './routes/dashboard'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
-import { Route as DashboardUtilitiesRouteImport } from './routes/dashboard.utilities'
-import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
-import { Route as DashboardReportsRouteImport } from './routes/dashboard.reports'
-import { Route as DashboardRemindersRouteImport } from './routes/dashboard.reminders'
-import { Route as DashboardOptimizationRouteImport } from './routes/dashboard.optimization'
-import { Route as DashboardDigitalServicesRouteImport } from './routes/dashboard.digital-services'
-import { Route as DashboardDevicesRouteImport } from './routes/dashboard.devices'
-import { Route as DashboardAnalyticsRouteImport } from './routes/dashboard.analytics'
+import { Route as rootRouteImport } from "./routes/__root"
+import { Route as SignupRouteImport } from "./routes/signup"
+import { Route as LoginRouteImport } from "./routes/login"
+import { Route as DashboardRouteImport } from "./routes/dashboard"
+import { Route as IndexRouteImport } from "./routes/index"
+import { Route as DashboardIndexRouteImport } from "./routes/dashboard.index"
+import { Route as DashboardUtilitiesRouteImport } from "./routes/dashboard.utilities"
+import { Route as DashboardSettingsRouteImport } from "./routes/dashboard.settings"
+import { Route as DashboardReportsRouteImport } from "./routes/dashboard.reports"
+import { Route as DashboardRemindersRouteImport } from "./routes/dashboard.reminders"
+import { Route as DashboardOptimizationRouteImport } from "./routes/dashboard.optimization"
+import { Route as DashboardDigitalServicesRouteImport } from "./routes/dashboard.digital-services"
+import { Route as DashboardDevicesRouteImport } from "./routes/dashboard.devices"
+import { Route as DashboardAnalyticsRouteImport } from "./routes/dashboard.analytics"
 
 const SignupRoute = SignupRouteImport.update({
-  id: '/signup',
-  path: '/signup',
+  id: "/signup",
+  path: "/signup",
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
+  id: "/login",
+  path: "/login",
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
+  id: "/dashboard",
+  path: "/dashboard",
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => DashboardRoute,
 } as any)
 const DashboardUtilitiesRoute = DashboardUtilitiesRouteImport.update({
-  id: '/utilities',
-  path: '/utilities',
+  id: "/utilities",
+  path: "/utilities",
   getParentRoute: () => DashboardRoute,
 } as any)
 const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
+  id: "/settings",
+  path: "/settings",
   getParentRoute: () => DashboardRoute,
 } as any)
 const DashboardReportsRoute = DashboardReportsRouteImport.update({
-  id: '/reports',
-  path: '/reports',
+  id: "/reports",
+  path: "/reports",
   getParentRoute: () => DashboardRoute,
 } as any)
 const DashboardRemindersRoute = DashboardRemindersRouteImport.update({
-  id: '/reminders',
-  path: '/reminders',
+  id: "/reminders",
+  path: "/reminders",
   getParentRoute: () => DashboardRoute,
 } as any)
 const DashboardOptimizationRoute = DashboardOptimizationRouteImport.update({
-  id: '/optimization',
-  path: '/optimization',
+  id: "/optimization",
+  path: "/optimization",
   getParentRoute: () => DashboardRoute,
 } as any)
 const DashboardDigitalServicesRoute =
   DashboardDigitalServicesRouteImport.update({
-    id: '/digital-services',
-    path: '/digital-services',
+    id: "/digital-services",
+    path: "/digital-services",
     getParentRoute: () => DashboardRoute,
   } as any)
 const DashboardDevicesRoute = DashboardDevicesRouteImport.update({
-  id: '/devices',
-  path: '/devices',
+  id: "/devices",
+  path: "/devices",
   getParentRoute: () => DashboardRoute,
 } as any)
 const DashboardAnalyticsRoute = DashboardAnalyticsRouteImport.update({
-  id: '/analytics',
-  path: '/analytics',
+  id: "/analytics",
+  path: "/analytics",
   getParentRoute: () => DashboardRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/dashboard': typeof DashboardRouteWithChildren
-  '/login': typeof LoginRoute
-  '/signup': typeof SignupRoute
-  '/dashboard/analytics': typeof DashboardAnalyticsRoute
-  '/dashboard/devices': typeof DashboardDevicesRoute
-  '/dashboard/digital-services': typeof DashboardDigitalServicesRoute
-  '/dashboard/optimization': typeof DashboardOptimizationRoute
-  '/dashboard/reminders': typeof DashboardRemindersRoute
-  '/dashboard/reports': typeof DashboardReportsRoute
-  '/dashboard/settings': typeof DashboardSettingsRoute
-  '/dashboard/utilities': typeof DashboardUtilitiesRoute
-  '/dashboard/': typeof DashboardIndexRoute
+  "/": typeof IndexRoute
+  "/dashboard": typeof DashboardRouteWithChildren
+  "/login": typeof LoginRoute
+  "/signup": typeof SignupRoute
+  "/dashboard/analytics": typeof DashboardAnalyticsRoute
+  "/dashboard/devices": typeof DashboardDevicesRoute
+  "/dashboard/digital-services": typeof DashboardDigitalServicesRoute
+  "/dashboard/optimization": typeof DashboardOptimizationRoute
+  "/dashboard/reminders": typeof DashboardRemindersRoute
+  "/dashboard/reports": typeof DashboardReportsRoute
+  "/dashboard/settings": typeof DashboardSettingsRoute
+  "/dashboard/utilities": typeof DashboardUtilitiesRoute
+  "/dashboard/": typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/login': typeof LoginRoute
-  '/signup': typeof SignupRoute
-  '/dashboard/analytics': typeof DashboardAnalyticsRoute
-  '/dashboard/devices': typeof DashboardDevicesRoute
-  '/dashboard/digital-services': typeof DashboardDigitalServicesRoute
-  '/dashboard/optimization': typeof DashboardOptimizationRoute
-  '/dashboard/reminders': typeof DashboardRemindersRoute
-  '/dashboard/reports': typeof DashboardReportsRoute
-  '/dashboard/settings': typeof DashboardSettingsRoute
-  '/dashboard/utilities': typeof DashboardUtilitiesRoute
-  '/dashboard': typeof DashboardIndexRoute
+  "/": typeof IndexRoute
+  "/login": typeof LoginRoute
+  "/signup": typeof SignupRoute
+  "/dashboard/analytics": typeof DashboardAnalyticsRoute
+  "/dashboard/devices": typeof DashboardDevicesRoute
+  "/dashboard/digital-services": typeof DashboardDigitalServicesRoute
+  "/dashboard/optimization": typeof DashboardOptimizationRoute
+  "/dashboard/reminders": typeof DashboardRemindersRoute
+  "/dashboard/reports": typeof DashboardReportsRoute
+  "/dashboard/settings": typeof DashboardSettingsRoute
+  "/dashboard/utilities": typeof DashboardUtilitiesRoute
+  "/dashboard": typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/dashboard': typeof DashboardRouteWithChildren
-  '/login': typeof LoginRoute
-  '/signup': typeof SignupRoute
-  '/dashboard/analytics': typeof DashboardAnalyticsRoute
-  '/dashboard/devices': typeof DashboardDevicesRoute
-  '/dashboard/digital-services': typeof DashboardDigitalServicesRoute
-  '/dashboard/optimization': typeof DashboardOptimizationRoute
-  '/dashboard/reminders': typeof DashboardRemindersRoute
-  '/dashboard/reports': typeof DashboardReportsRoute
-  '/dashboard/settings': typeof DashboardSettingsRoute
-  '/dashboard/utilities': typeof DashboardUtilitiesRoute
-  '/dashboard/': typeof DashboardIndexRoute
+  "/": typeof IndexRoute
+  "/dashboard": typeof DashboardRouteWithChildren
+  "/login": typeof LoginRoute
+  "/signup": typeof SignupRoute
+  "/dashboard/analytics": typeof DashboardAnalyticsRoute
+  "/dashboard/devices": typeof DashboardDevicesRoute
+  "/dashboard/digital-services": typeof DashboardDigitalServicesRoute
+  "/dashboard/optimization": typeof DashboardOptimizationRoute
+  "/dashboard/reminders": typeof DashboardRemindersRoute
+  "/dashboard/reports": typeof DashboardReportsRoute
+  "/dashboard/settings": typeof DashboardSettingsRoute
+  "/dashboard/utilities": typeof DashboardUtilitiesRoute
+  "/dashboard/": typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/dashboard'
-    | '/login'
-    | '/signup'
-    | '/dashboard/analytics'
-    | '/dashboard/devices'
-    | '/dashboard/digital-services'
-    | '/dashboard/optimization'
-    | '/dashboard/reminders'
-    | '/dashboard/reports'
-    | '/dashboard/settings'
-    | '/dashboard/utilities'
-    | '/dashboard/'
+    | "/"
+    | "/dashboard"
+    | "/login"
+    | "/signup"
+    | "/dashboard/analytics"
+    | "/dashboard/devices"
+    | "/dashboard/digital-services"
+    | "/dashboard/optimization"
+    | "/dashboard/reminders"
+    | "/dashboard/reports"
+    | "/dashboard/settings"
+    | "/dashboard/utilities"
+    | "/dashboard/"
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | '/login'
-    | '/signup'
-    | '/dashboard/analytics'
-    | '/dashboard/devices'
-    | '/dashboard/digital-services'
-    | '/dashboard/optimization'
-    | '/dashboard/reminders'
-    | '/dashboard/reports'
-    | '/dashboard/settings'
-    | '/dashboard/utilities'
-    | '/dashboard'
+    | "/"
+    | "/login"
+    | "/signup"
+    | "/dashboard/analytics"
+    | "/dashboard/devices"
+    | "/dashboard/digital-services"
+    | "/dashboard/optimization"
+    | "/dashboard/reminders"
+    | "/dashboard/reports"
+    | "/dashboard/settings"
+    | "/dashboard/utilities"
+    | "/dashboard"
   id:
-    | '__root__'
-    | '/'
-    | '/dashboard'
-    | '/login'
-    | '/signup'
-    | '/dashboard/analytics'
-    | '/dashboard/devices'
-    | '/dashboard/digital-services'
-    | '/dashboard/optimization'
-    | '/dashboard/reminders'
-    | '/dashboard/reports'
-    | '/dashboard/settings'
-    | '/dashboard/utilities'
-    | '/dashboard/'
+    | "__root__"
+    | "/"
+    | "/dashboard"
+    | "/login"
+    | "/signup"
+    | "/dashboard/analytics"
+    | "/dashboard/devices"
+    | "/dashboard/digital-services"
+    | "/dashboard/optimization"
+    | "/dashboard/reminders"
+    | "/dashboard/reports"
+    | "/dashboard/settings"
+    | "/dashboard/utilities"
+    | "/dashboard/"
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -189,96 +189,96 @@ export interface RootRouteChildren {
   SignupRoute: typeof SignupRoute
 }
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/signup': {
-      id: '/signup'
-      path: '/signup'
-      fullPath: '/signup'
+    "/signup": {
+      id: "/signup"
+      path: "/signup"
+      fullPath: "/signup"
       preLoaderRoute: typeof SignupRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
+    "/login": {
+      id: "/login"
+      path: "/login"
+      fullPath: "/login"
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
+    "/dashboard": {
+      id: "/dashboard"
+      path: "/dashboard"
+      fullPath: "/dashboard"
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
+    "/": {
+      id: "/"
+      path: "/"
+      fullPath: "/"
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dashboard/': {
-      id: '/dashboard/'
-      path: '/'
-      fullPath: '/dashboard/'
+    "/dashboard/": {
+      id: "/dashboard/"
+      path: "/"
+      fullPath: "/dashboard/"
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/dashboard/utilities': {
-      id: '/dashboard/utilities'
-      path: '/utilities'
-      fullPath: '/dashboard/utilities'
+    "/dashboard/utilities": {
+      id: "/dashboard/utilities"
+      path: "/utilities"
+      fullPath: "/dashboard/utilities"
       preLoaderRoute: typeof DashboardUtilitiesRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/dashboard/settings': {
-      id: '/dashboard/settings'
-      path: '/settings'
-      fullPath: '/dashboard/settings'
+    "/dashboard/settings": {
+      id: "/dashboard/settings"
+      path: "/settings"
+      fullPath: "/dashboard/settings"
       preLoaderRoute: typeof DashboardSettingsRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/dashboard/reports': {
-      id: '/dashboard/reports'
-      path: '/reports'
-      fullPath: '/dashboard/reports'
+    "/dashboard/reports": {
+      id: "/dashboard/reports"
+      path: "/reports"
+      fullPath: "/dashboard/reports"
       preLoaderRoute: typeof DashboardReportsRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/dashboard/reminders': {
-      id: '/dashboard/reminders'
-      path: '/reminders'
-      fullPath: '/dashboard/reminders'
+    "/dashboard/reminders": {
+      id: "/dashboard/reminders"
+      path: "/reminders"
+      fullPath: "/dashboard/reminders"
       preLoaderRoute: typeof DashboardRemindersRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/dashboard/optimization': {
-      id: '/dashboard/optimization'
-      path: '/optimization'
-      fullPath: '/dashboard/optimization'
+    "/dashboard/optimization": {
+      id: "/dashboard/optimization"
+      path: "/optimization"
+      fullPath: "/dashboard/optimization"
       preLoaderRoute: typeof DashboardOptimizationRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/dashboard/digital-services': {
-      id: '/dashboard/digital-services'
-      path: '/digital-services'
-      fullPath: '/dashboard/digital-services'
+    "/dashboard/digital-services": {
+      id: "/dashboard/digital-services"
+      path: "/digital-services"
+      fullPath: "/dashboard/digital-services"
       preLoaderRoute: typeof DashboardDigitalServicesRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/dashboard/devices': {
-      id: '/dashboard/devices'
-      path: '/devices'
-      fullPath: '/dashboard/devices'
+    "/dashboard/devices": {
+      id: "/dashboard/devices"
+      path: "/devices"
+      fullPath: "/dashboard/devices"
       preLoaderRoute: typeof DashboardDevicesRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/dashboard/analytics': {
-      id: '/dashboard/analytics'
-      path: '/analytics'
-      fullPath: '/dashboard/analytics'
+    "/dashboard/analytics": {
+      id: "/dashboard/analytics"
+      path: "/analytics"
+      fullPath: "/dashboard/analytics"
       preLoaderRoute: typeof DashboardAnalyticsRouteImport
       parentRoute: typeof DashboardRoute
     }
@@ -322,12 +322,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}

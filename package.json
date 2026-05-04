@@ -4,9 +4,9 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
+    "dev": "vite",
     "build": "vite build",
-    "build:dev": "vite build --mode development",
+    "clean": "powershell -Command \"Remove-Item -Recurse -Force .tanstack, .wrangler, dist, .output, .vinxi -ErrorAction SilentlyContinue\"",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write ."
