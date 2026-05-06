@@ -17,8 +17,24 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
+  const passwordRequirements = [
+    { label: "8+ characters", test: password.length >= 8 },
+    { label: "Uppercase", test: /[A-Z]/.test(password) },
+    { label: "Lowercase", test: /[a-z]/.test(password) },
+    { label: "Number", test: /[0-9]/.test(password) },
+    { label: "Special character", test: /[^A-Za-z0-9]/.test(password) },
+  ];
+
+  const isPasswordValid = passwordRequirements.every(req => req.test);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!isPasswordValid) {
+      toast.error("Please meet all password requirements.");
+      return;
+    }
+
     setLoading(true);
     try {
       await register(email, password, name);
@@ -101,6 +117,18 @@ function Signup() {
                   placeholder="••••••••"
                   className="w-full bg-cream/50 border border-pi-border rounded-2xl py-4 pl-12 pr-4 text-ink focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all placeholder:text-muted-sage/50"
                 />
+              </div>
+
+              {/* Password Requirements UI */}
+              <div className="grid grid-cols-2 gap-2 mt-3 ml-1">
+                {passwordRequirements.map((req, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <div className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${req.test ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]' : 'bg-pi-border'}`} />
+                    <span className={`text-[10px] font-bold uppercase tracking-wider transition-colors duration-300 ${req.test ? 'text-emerald-600' : 'text-muted-sage/60'}`}>
+                      {req.label}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 

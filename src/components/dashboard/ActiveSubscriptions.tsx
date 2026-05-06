@@ -16,7 +16,6 @@ export default function ActiveSubscriptions() {
           <CreditCard className="w-5 h-5 text-teal" />
           <h3 className="text-teal font-semibold">Digital Service Nodes</h3>
         </div>
-        <button className="text-[10px] font-bold uppercase tracking-wider text-brand hover:text-teal transition-colors">View All</button>
       </div>
 
       <div className="space-y-3 flex-1">
